@@ -1,4 +1,19 @@
-<div>
-    <h1>OLEX</h1>
-    <img width="100" alt="chat messaging gif" src="../../assets/GIFs/chatbot_bubbletalk.gif">
+<h1 class="login-title">Olex Chat App</h1>
+<div class="login">
+    <div>
+        <img width="300" class="login-logo" alt="chat messaging gif" src="../../assets/GIFs/chatbot_bubbletalk.gif" />
+        <p class="login-slogan">"The best chat app you will ever see"</p>
+        <p class="login-disclaimer">(presuming you were born blind)</p>
+    </div>
+    <form class="login-form">
+        <label for="login-username" class="login-label"> Username </label>
+        <input id="login-username" class="login-input" type="text" placeholder="Username" />
+        
+        <label for="login-password" class="login-label"> Password </label>
+        <input id="login-password" class="login-input" type="password" placeholder="Password" />
+
+        <a routerLink="/display">
+            <button type="submit" class="login-button">Log In</button>
+        </a>
+    </form>
 </div>

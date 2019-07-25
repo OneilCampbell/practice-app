@@ -1,0 +1,89 @@
+/* 
+    html, body{
+
+    }
+
+    elements{
+
+    }
+
+    .class | #id {
+        width
+        height
+
+        position (absolute, relative, ...)
+        margin
+        padding
+        border (border-radius, box-shadow)
+
+        display
+        background (color, image, position, size, opacity, ....)
+        font (size, weight, text-shadow, style, ....)
+
+        animations
+    }
+*/
+
+
+
+.login-form > label, .login-form > input{
+    display: block;
+}
+
+.login-title{
+    text-align: center;
+    font-size:50px;
+}
+
+.login{
+    margin-top:50px;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-around;
+    background: royalblue;
+}
+
+.login-logo{
+    margin-left:30%;
+}
+
+.login-slogan{
+    font-size:40px;
+}
+
+.login-disclaimer{
+    text-align: center;
+}
+
+.login-form{
+    width: 30%;
+    background: rgb(15, 223, 171);
+}
+
+.login-label{
+    font-size: 35px;
+    margin-left: 10%;
+    padding-top: 30px;
+    padding-bottom:10px;
+}
+
+.login-input{
+    width: 80%;
+    margin-left:5%;
+    margin-bottom: 30px;
+    padding: 5px 15px;
+    font-size: 30px;
+}
+
+.login-button{
+    margin-left: 50%;
+    border:none;
+    border-radius: 20px;
+    padding: 5px 15px;
+    background: royalblue;
+    font-size: 25px;
+}
+
+.login-button:hover{
+    cursor: pointer;
+}
