@@ -1,1 +1,16 @@
-<p>display works!</p>
+<p>Check the display component's html file</p>
+<!-- 
+    // TODO: Format the li elements to correctly display the data
+    // TODO: make sure the information being passed to delete function is formatted correctly
+ -->
+
+    <h1> Data </h1>
+    <ul *ngIf="dataToDisplay">
+        <li *ngFor="let data of dataToDisplay">
+            {{data}}
+            <p (click)="deleteData(data.id)"> Delete </p>
+        </li>
+    </ul>
+    <input #newDataInput placeholder="enter new data here" />
+    <button type="submit" (click)="createData(newDataInput.value)">Create</button>
+
