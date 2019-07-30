@@ -12,6 +12,8 @@ export class DisplayComponent implements OnInit {
   // TODO: specify type of dataToDisplay
   dataToDisplay;
 
+  message: string = '';
+
   constructor(
     private dataService: PracticeDataService,
     public chatService: ChatService
@@ -20,6 +22,26 @@ export class DisplayComponent implements OnInit {
   ngOnInit() {
     this.getDataToDisplay()
   }
+
+  //----------------------------------
+  // METHODS FOR CHAT FUNCTIONALITY
+  // ---------------------------------
+
+  //uses chatService's sendMessage method to send message user typed in to the server
+  //then clears the input field/resets the value of message
+  sendMessage() {
+    this.chatService.sendMessage(this.message);
+    this.message = '';
+  }
+
+
+
+
+
+
+  // -------------------------------------
+  // METHODS FOR INTERACTING WITH DATABASE
+  // -------------------------------------
 
   getDataToDisplay(): void {
     this.dataService.getData().subscribe(

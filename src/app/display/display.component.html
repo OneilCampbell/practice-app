@@ -4,6 +4,10 @@
     // TODO: make sure the information being passed to delete function is formatted correctly
  -->
 
+    <!-- 
+        CODE FOR INTERACTING WITH DATABASE 
+    -->
+
     <h1> Data </h1>
     <ul *ngIf="dataToDisplay">
         <li *ngFor="let data of dataToDisplay">
@@ -13,4 +17,16 @@
     </ul>
     <input #newDataInput placeholder="enter new data here" />
     <button type="submit" (click)="createData(newDataInput.value)">Create</button>
+
+
+
+    <!-- 
+        CODE FOR CHAT BOX 
+    -->
+
+    <div class="chat">
+        <h1>CHAT</h1>
+    </div>
+    <input [(ngModel)]="message" placeholder="Enter New Message"/>
+    <button (click)="sendMessage()">Send</button>
 

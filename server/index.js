@@ -18,10 +18,16 @@ const port = process.env.PORT || 3000;
 
 //event that gets fired when a new connection is established
 // @param event --- the event being fired (in this case 'connection')
-// @param listener --- a listener that is executed once the event is fired, takes only one parameter of type Socket
+// @param listener --- another listener that is executed once the specified event is fired
 //
 io.on('connection', (socket) => {
     console.log('user connected');
+
+    // fires whenever the 'new-message' event is triggered
+    //event is triggered by sendMessage function in chat.service.ts file
+    socket.on('new-message', (message) => {
+        console.log(message);
+    })
 })
 
 
