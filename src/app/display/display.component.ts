@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+
 import { PracticeDataService } from '../services/practice-data.service';
+import { ChatService } from '../services/chat/chat.service';
 
 @Component({
   selector: 'app-display',
@@ -11,7 +13,8 @@ export class DisplayComponent implements OnInit {
   dataToDisplay;
 
   constructor(
-    private dataService: PracticeDataService
+    private dataService: PracticeDataService,
+    public chatService: ChatService
   ) { }
 
   ngOnInit() {
