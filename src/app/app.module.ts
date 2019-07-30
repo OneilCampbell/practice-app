@@ -7,6 +7,8 @@ import { AppComponent } from './app-component/app.component';
 import { LoginComponent } from './login/login.component';
 import { DisplayComponent } from './display/display.component';
 
+import { ChatService } from './services/chat/chat.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +20,7 @@ import { DisplayComponent } from './display/display.component';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [ChatService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
