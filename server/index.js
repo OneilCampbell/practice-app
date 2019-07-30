@@ -26,7 +26,8 @@ io.on('connection', (socket) => {
     // fires whenever the 'new-message' event is triggered
     //event is triggered by sendMessage function in chat.service.ts file
     socket.on('new-message', (message) => {
-        console.log(message);
+        //sends an event to everyone connected to the server and passes along the message
+        io.emit('new-message', message);
     })
 })
 

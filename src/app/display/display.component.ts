@@ -13,6 +13,7 @@ export class DisplayComponent implements OnInit {
   dataToDisplay;
 
   message: string = '';
+  messages: string[] = [];
 
   constructor(
     private dataService: PracticeDataService,
@@ -20,7 +21,8 @@ export class DisplayComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getDataToDisplay()
+    this.getDataToDisplay();
+    this.getMessages();
   }
 
   //----------------------------------
@@ -34,7 +36,14 @@ export class DisplayComponent implements OnInit {
     this.message = '';
   }
 
-
+  //uses chatService's getMessages method to get the newest message
+  //then adds it to the messages array so it can be displayed
+  getMessages() {
+    this.chatService.getMessages().subscribe((message: string) => {
+        this.messages.push(message);
+      }
+    )
+  }
 
 
 

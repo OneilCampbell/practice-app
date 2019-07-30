@@ -26,7 +26,13 @@
 
     <div class="chat">
         <h1>CHAT</h1>
+        <div *ngIf="messages.length">
+            <h2>Messages</h2>
+            <p *ngFor="let message of messages">
+                {{message}}
+            </p>
+        </div>
     </div>
-    <input [(ngModel)]="message" placeholder="Enter New Message"/>
+    <input [(ngModel)]="message"  (keyup)="$event.keyCode == 13 && sendMessage()" placeholder="Enter New Message"/>
     <button (click)="sendMessage()">Send</button>
 

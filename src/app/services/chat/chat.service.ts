@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs'
 import * as io from 'socket.io-client';
 
 @Injectable({
@@ -18,10 +19,19 @@ export class ChatService {
     this.socket = io(this.url);
   }
 
-  public sendMessage(message: String) {
+  public sendMessage(message: string) {
 
     //triggers a socket 'new message' event and passes along the message as an argument
     //listener in ./server/index.js that listens for 'new-message' event and takes message as a parameter 
     this.socket.emit('new-message', message);
+  }
+
+  //every time the server receives a new message, observer.next() forwads it to observers
+  public getMessages = () => {
+    return Observable.create((observer) => {
+      this.socket.on('new-message', (message: string) => {
+        observer.next(message);
+      })
+    })
   }
 }
