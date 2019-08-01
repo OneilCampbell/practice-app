@@ -31,19 +31,19 @@ export class DisplayComponent implements OnInit {
 
   //uses chatService's sendMessage method to send message user typed in to the server
   //then clears the input field/resets the value of message
-  sendMessage() {
-    this.chatService.sendMessage(this.message);
-    this.message = '';
-  }
+  // sendMessage() {
+  //   this.chatService.sendMessage(this.message);
+  //   this.message = '';
+  // }
 
   //uses chatService's getMessages method to get the newest message
   //then adds it to the messages array so it can be displayed
-  getMessages() {
-    this.chatService.getMessages().subscribe((message: string) => {
-        this.messages.push(message);
-      }
-    )
-  }
+  // getMessages() {
+  //   this.chatService.getMessages().subscribe((message: string) => {
+  //       this.messages.push(message);
+  //     }
+  //   )
+  // }
 
 
 
@@ -52,22 +52,22 @@ export class DisplayComponent implements OnInit {
   // METHODS FOR INTERACTING WITH DATABASE
   // -------------------------------------
 
-  getDataToDisplay(): void {
-    this.dataService.getData().subscribe(
-      data => this.dataToDisplay = data
-    );
-  }
+  // getDataToDisplay(): void {
+  //   this.dataService.getData().subscribe(
+  //     data => this.dataToDisplay = data
+  //   );
+  // }
 
   // TODO: implement
-  updateData(data): void {
+  // updateData(data): void {
 
-  }
+  // }
 
-  createData(data): void {
-    this.dataService.createData(data).subscribe()
-  }
+  // createData(data): void {
+  //   this.dataService.createData(data).subscribe()
+  // }
 
-  deleteData(id: number): void {
-    this.dataService.deleteData(id).subscribe()
-  }
+  // deleteData(id: number): void {
+  //   this.dataService.deleteData(id).subscribe()
+  // }
 }
