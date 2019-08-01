@@ -3,10 +3,10 @@ let express = require('express');
 //creates an instance of an express application and stores it in the app variable
 let app = express();
 
-const path = require('path');
+// const path = require('path');
 
 //allows access to http module
-let http = require('http');
+// let http = require('http');
 //creates a server and passes in the instance of express
 //express will now serve as the handler for requests to the server
 // let server = http.Server(app);
