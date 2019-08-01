@@ -2,19 +2,19 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-};
+// const httpOptions = {
+//   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+// };
 
 @Injectable({
   providedIn: 'root'
 })
 export class PracticeDataService {
   // TODO: provide appropriate url for server
-  private dataServerUrl = '';
+  // private dataServerUrl = '';
 
   constructor(
-    private http: HttpClient
+    // private http: HttpClient
   ) { }
 
   // TODO: specify return type of the Observable

@@ -16,8 +16,8 @@ export class DisplayComponent implements OnInit {
   messages: string[] = [];
 
   constructor(
-    private dataService: PracticeDataService,
-    public chatService: ChatService
+    // private dataService: PracticeDataService,
+    // public chatService: ChatService
   ) { }
 
   ngOnInit() {
