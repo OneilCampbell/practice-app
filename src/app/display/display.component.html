@@ -8,7 +8,7 @@
         CODE FOR INTERACTING WITH DATABASE 
     -->
 
-    <h1> Data </h1>
+    <!-- <h1> Data </h1>
     <ul *ngIf="dataToDisplay">
         <li *ngFor="let data of dataToDisplay">
             {{data}}
@@ -16,7 +16,7 @@
         </li>
     </ul>
     <input #newDataInput placeholder="enter new data here" />
-    <button type="submit" (click)="createData(newDataInput.value)">Create</button>
+    <button type="submit" (click)="createData(newDataInput.value)">Create</button> -->
 
 
 
@@ -33,6 +33,6 @@
             </p>
         </div>
     </div>
-    <input [(ngModel)]="message"  (keyup)="$event.keyCode == 13 && sendMessage()" placeholder="Enter New Message"/>
-    <button (click)="sendMessage()">Send</button>
+    <!-- <input [(ngModel)]="message"  (keyup)="$event.keyCode == 13 && sendMessage()" placeholder="Enter New Message"/>
+    <button (click)="sendMessage()">Send</button> -->
 
