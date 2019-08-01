@@ -23,16 +23,16 @@ const port2 = process.env.PORT || 8080;
 // @param event --- the event being fired (in this case 'connection')
 // @param listener --- another listener that is executed once the specified event is fired
 //
-io.on('connection', (socket) => {
-    console.log('user connected');
+// io.on('connection', (socket) => {
+//     console.log('user connected');
 
-    // fires whenever the 'new-message' event is triggered
-    //event is triggered by sendMessage function in chat.service.ts file
-    socket.on('new-message', (message) => {
-        //sends an event to everyone connected to the server and passes along the message
-        io.emit('new-message', message);
-    })
-})
+//     // fires whenever the 'new-message' event is triggered
+//     //event is triggered by sendMessage function in chat.service.ts file
+//     socket.on('new-message', (message) => {
+//         //sends an event to everyone connected to the server and passes along the message
+//         io.emit('new-message', message);
+//     })
+// })
 
 app.use(express.static(__dirname + '/dist'));
 
