@@ -44,6 +44,6 @@ res.sendFile(path.join(__dirname+'/dist/olex-chat-app/index.html'));
 
 app.listen(port2);
 
-server.listen(port, () => {
-    console.log(`started on port: ${port}`)
-})
+// server.listen(port, () => {
+//     console.log(`started on port: ${port}`)
+// })
