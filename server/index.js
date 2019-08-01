@@ -16,6 +16,7 @@ let socketIO = require('socket.io');
 let io = socketIO(server);
 
 const port = process.env.PORT || 3000;
+const port2 = process.env.PORT || 8080;
 
 
 //event that gets fired when a new connection is established
@@ -41,6 +42,7 @@ res.sendFile(path.join(__dirname+'/dist/olex-chat-app/index.html'));
 
 });
 
+app.listen(port2);
 
 server.listen(port, () => {
     console.log(`started on port: ${port}`)
