@@ -34,13 +34,13 @@ io.on('connection', (socket) => {
     })
 })
 
-app.use(express.static(__dirname + '/dist/olex-chat-app'));
+app.use(express.static(__dirname + '/dist'));
 
-app.get('/*', function(req,res) {
+// app.get('/*', function(req,res) {
     
-res.sendFile(path.join(__dirname+'/dist/olex-chat-app/index.html'));
+// res.sendFile(path.join(__dirname+'/dist/olex-chat-app/index.html'));
 
-});
+// });
 
 app.listen(port2);
 
