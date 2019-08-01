@@ -21,8 +21,8 @@ export class DisplayComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getDataToDisplay();
-    this.getMessages();
+    // this.getDataToDisplay();
+    // this.getMessages();
   }
 
   //----------------------------------
