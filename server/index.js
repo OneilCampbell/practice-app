@@ -46,7 +46,9 @@ app.use(express.static(__dirname + '/dist'));
 
 console.log("after")
 
-app.listen(port2);
+app.listen(port2, () => {
+    console.log('up and running');
+});
 
 // server.listen(port, () => {
 //     console.log(`started on port: ${port}`)
