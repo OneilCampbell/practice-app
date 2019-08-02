@@ -7,7 +7,7 @@
   },
   "scripts": {
     "ng": "ng",
-    "start": "node server.js",
+    "start": "concurrently --kill-others-on-fail \"node server.js\" \"node socket-server.js\"",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
