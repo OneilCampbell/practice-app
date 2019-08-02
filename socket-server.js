@@ -4,10 +4,10 @@ let express = require('express');
 let app = express();
 
 //allows access to http module
-let http = require('http');
+let https = require('https');
 //creates a server and passes in the instance of express
 //express will now serve as the handler for requests to the server
-let server = http.createServer(app);
+let server = https.createServer(app);
 
 let io = require('socket.io').listen(server);
 // //bind http server with socket.io 
