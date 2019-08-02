@@ -17,12 +17,12 @@ export class DisplayComponent implements OnInit {
 
   constructor(
     // private dataService: PracticeDataService,
-    // public chatService: ChatService
+    public chatService: ChatService
   ) { }
 
   ngOnInit() {
     // this.getDataToDisplay();
-    // this.getMessages();
+    this.getMessages();
   }
 
   //----------------------------------
@@ -31,19 +31,19 @@ export class DisplayComponent implements OnInit {
 
   //uses chatService's sendMessage method to send message user typed in to the server
   //then clears the input field/resets the value of message
-  // sendMessage() {
-  //   this.chatService.sendMessage(this.message);
-  //   this.message = '';
-  // }
+  sendMessage() {
+    this.chatService.sendMessage(this.message);
+    this.message = '';
+  }
 
   //uses chatService's getMessages method to get the newest message
   //then adds it to the messages array so it can be displayed
-  // getMessages() {
-  //   this.chatService.getMessages().subscribe((message: string) => {
-  //       this.messages.push(message);
-  //     }
-  //   )
-  // }
+  getMessages() {
+    this.chatService.getMessages().subscribe((message: string) => {
+        this.messages.push(message);
+      }
+    )
+  }
 
 
 
