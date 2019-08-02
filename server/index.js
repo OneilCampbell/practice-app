@@ -3,7 +3,7 @@ let express = require('express');
 //creates an instance of an express application and stores it in the app variable
 let app = express();
 
-// const path = require('path');
+const path = require('path');
 
 //allows access to http module
 // let http = require('http');
@@ -34,21 +34,17 @@ const port2 = process.env.PORT || 8080;
 //     })
 // })
 
-console.log("before")
 
-app.use(express.static(__dirname + '/dist'));
+app.use(express.static(__dirname + '/dist/olex-chat-app'));
 
-// app.get('/*', function(req,res) {
+app.get('/*', function(req,res) {
     
-// res.sendFile(path.join(__dirname+'/dist/olex-chat-app/index.html'));
+    res.sendFile(path.join(__dirname, '/dist/olex-chat-app/index.html'));
 
-// });
-
-console.log("after")
-
-app.listen(port2, () => {
-    console.log('up and running');
 });
+
+
+app.listen(port2);
 
 // server.listen(port, () => {
 //     console.log(`started on port: ${port}`)
