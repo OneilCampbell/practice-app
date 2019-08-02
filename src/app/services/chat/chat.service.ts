@@ -6,7 +6,7 @@ import * as io from 'socket.io-client';
   providedIn: 'root'
 })
 export class ChatService {
-  private url = 'http://localhost:3000';
+  private url = 'https://sleepy-peak-16026.herokuapp.com:3000';
   private socket;
 
   constructor() {
@@ -16,7 +16,7 @@ export class ChatService {
       @opts — Any connect options that we want to pass along
       @return — A Socket object
      */
-    this.socket = io(this.url);
+    this.socket = io.connect(this.url);
   }
 
   public sendMessage(message: string) {

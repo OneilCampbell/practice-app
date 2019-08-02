@@ -7,11 +7,11 @@ let app = express();
 let http = require('http');
 //creates a server and passes in the instance of express
 //express will now serve as the handler for requests to the server
-let server = http.Server(app);
+let server = http.createServer(app);
 
-let socketIO = require('socket.io');
+let io = require('socket.io').listen(server);
 // //bind http server with socket.io 
-let io = socketIO(server);
+// let io = socketIO(server);
 
 const port = process.env.PORT || 3000;
 
