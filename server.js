@@ -12,11 +12,11 @@ let http = require('http');
 let server = http.Server(app);
 
 let socketIO = require('socket.io');
-// //bind http server with socket.io 
+//bind http server with socket.io 
 let io = socketIO(server);
 
 // const port = process.env.PORT || 3000;
-const port = process.env.PORT || 8080;
+const port2 = process.env.PORT || 8080;
 
 
 //event that gets fired when a new connection is established
@@ -35,17 +35,17 @@ io.on('connection', (socket) => {
 })
 
 
-app.use(express.static(__dirname + '/dist/olex-chat-app'));
+server.use(express.static(__dirname + '/dist/olex-chat-app'));
 
-app.get('/*', function(req,res) {
+server.get('/*', function(req,res) {
     
     res.sendFile(path.join(__dirname, '/dist/olex-chat-app/index.html'));
 
 });
 
 
-// app.listen(port2);
+server.listen(port2);
 
-server.listen(port, () => {
-    console.log(`started on port: ${port}`)
-})
+// server.listen(port, () => {
+//     console.log(`started on port: ${port}`)
+// })
