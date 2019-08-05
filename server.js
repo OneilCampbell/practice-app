@@ -2,62 +2,29 @@
 let express = require('express');
 //creates an instance of an express application and stores it in the app variable
 let app = express();
-
-const path = require('path');
-
-// // //allows access to http module
-// let https = require('https');
-// // //creates a server and passes in the instance of express
-// // //express will now serve as the handler for requests to the server
-// let server = https.createServer(app);
-
-// let socketIO = require('socket.io');
-// // //bind http server with socket.io 
-// // let io = socketIO(server);
-
-// const port = process.env.PORT || 3000;
-const port2 = process.env.PORT || 8080;
+//use port environment variable provided by heroku when in production or localhost:8080 when in development
+const port = process.env.PORT || 8080;
 
 
-//event that gets fired when a new connection is established
-// @param event --- the event being fired (in this case 'connection')
-// @param listener --- another listener that is executed once the specified event is fired
-//
-// io.on('connection', (socket) => {
-//     console.log('user connected');
+//**************************
+//      For Production
+//**************************
 
-//     // fires whenever the 'new-message' event is triggered
-//     //event is triggered by sendMessage function in chat.service.ts file
-//     socket.on('new-message', (message) => {
-//         //sends an event to everyone connected to the server and passes along the message
-//         io.emit('new-message', message);
-//     })
-// })
-
-
+// tells express where to serve files from in production
+// 'dist/' gets created after 'ng build' command is executed
 app.use(express.static(__dirname + '/dist/olex-chat-app'));
 
+// all routes get funneled through/redirected to angular's top level index.html file
+// if present, angular routing takes over after
 app.get('/*', function(req,res) {
     
+    //creates path to index.html in build folder and sends the matching file at the location
+    //so that it can be displayed
     res.sendFile(path.join(__dirname, '/dist/olex-chat-app/index.html'));
 
 });
 
-
-// const io = socketIO(server);
-
-// io.on('connection', (socket) => {
-//     console.log('Client connected');
-//     socket.on('disconnect', () => console.log('Client disconnected'));
-//     socket.on('new-message', (message) => {
-//         //sends an event to everyone connected to the server and passes along the message
-//         io.emit('new-message', message);
-//     })
-// })
-
-app.listen(port2);
-// server.listen(port2);
-
-// server.listen(port, () => {
-//     console.log(`started on port: ${port}`)
-// })
+//express app listens for changes and requests on the provided port then acts accordingly
+app.listen(port, () => {
+    console.log(`app up and running on port: ${port}`);
+});

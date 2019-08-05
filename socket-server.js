@@ -1,53 +1,47 @@
-// // //allows access to the express module and all functions and methods exported from it
-// // let express = require('express');
-// // //creates an instance of an express application and stores it in the app variable
-// // let app = express();
+/**---------------------------------------------------------------
+ *           FILE IS ONLY RUN IN DEVELOPMENT MODE
+ *   the actual server used in production is deployed separately
+ * ---------------------------------------------------------------
+ */
 
-// // //allows access to http module
-// // let https = require('https');
-// // //creates a server and passes in the instance of express
-// // //express will now serve as the handler for requests to the server
-// // let server = https.createServer(app);
 
-// // let io = require('socket.io').listen(server);
-// // // //bind http server with socket.io 
-// // // let io = socketIO(server);
+//allows access to the express module and all functions and methods exported from it
+let express = require('express');
+//creates an instance of an express application and stores it in the app variable
+let app = express();
 
-// // const port = process.env.PORT || 3000;
+//allows access to https module
+let https = require('https');
+//creates a server and passes in the instance of express
+//express will now serve as the handler for requests to the server
+let server = https.createServer(app);
 
-// // io.on('connection', (socket) => {
-// //     console.log('user connected');
+//allows acces to socket.io module
+let socketIO = require('socket.io');
+//bind http server with socket.io 
+let io = socketIO(server);
 
-// //     // fires whenever the 'new-message' event is triggered
-// //     //event is triggered by sendMessage function in chat.service.ts file
-// //     socket.on('new-message', (message) => {
-// //         //sends an event to everyone connected to the server and passes along the message
-// //         io.emit('new-message', message);
-// //     })
-// // })
+const port = process.env.PORT || 3000;
 
-// // server.listen(port, () => {
-// //     console.log(`started on port: ${port}`)
-// // })
+//event that gets fired when a new connection is established
+// @param event --- the event being fired (in this case 'connection')
+// @param listener --- another listener that is executed once the specified event is fired
+//
+io.on('connection', (socket) => {
+    console.log('user connected');
 
-// const express = require('express');
-// const socketIO = require('socket.io');
-// const path = require('path');
+    // fires whenever the 'new-message' event is triggered
+    //event is triggered by sendMessage function in chat.service.ts file
+    socket.on('new-message', (message) => {
+        //sends an event to everyone connected to the server and passes along the message
+        io.emit('new-message', message);
+    })
+})
 
-// const PORT = process.env.PORT || 3000;
-// const INDEX = path.join(__dirname, '/dist/olex-chat-app/index.html')
-
-// const server = express()
-//     .use((req, res) => res.sendFile(INDEX))
-//     .listen(PORT, () => console.log(`Listening on ${ PORT }`));
-
-// const io = socketIO(server);
-
-// io.on('connection', (socket) => {
-//     console.log('Client connected');
-//     socket.on('disconnect', () => console.log('Client disconnected'));
-//     socket.on('new-message', (message) => {
-//         //sends an event to everyone connected to the server and passes along the message
-//         io.emit('new-message', message);
-//     })
-// })
+//server listens for changes or events on the provided port
+//those events are processed through the above function once the connection has been established
+//connect to the server via the socket.io-client
+//check './src/app/services/chat/chat.service.ts' for establishment of connection
+server.listen(port, () => {
+    console.log(`started on port: ${port}`)
+})
