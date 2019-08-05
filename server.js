@@ -11,7 +11,7 @@ const path = require('path');
 // //express will now serve as the handler for requests to the server
 // let server = http.Server(app);
 
-// let socketIO = require('socket.io');
+let socketIO = require('socket.io');
 // //bind http server with socket.io 
 // let io = socketIO(server);
 
@@ -45,6 +45,17 @@ app.get('/*', function(req,res) {
 
 
 app.listen(port2);
+
+const io = socketIO(app);
+
+io.on('connection', (socket) => {
+    console.log('Client connected');
+    socket.on('disconnect', () => console.log('Client disconnected'));
+    socket.on('new-message', (message) => {
+        //sends an event to everyone connected to the server and passes along the message
+        io.emit('new-message', message);
+    })
+})
 
 // server.listen(port, () => {
 //     console.log(`started on port: ${port}`)
