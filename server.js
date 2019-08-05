@@ -44,8 +44,6 @@ app.get('/*', function(req,res) {
 });
 
 
-// app.listen(port2);
-
 const io = socketIO(server);
 
 io.on('connection', (socket) => {
@@ -57,7 +55,8 @@ io.on('connection', (socket) => {
     })
 })
 
-server.listen(port2);
+app.listen(port2);
+// server.listen(port2);
 
 // server.listen(port, () => {
 //     console.log(`started on port: ${port}`)
