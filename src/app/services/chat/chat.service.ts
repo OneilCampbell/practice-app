@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs'
-import * as io from 'socket.io-client';
+// import * as io from 'socket.io-client';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ChatService {
-  private url = 'https://sleepy-peak-16026.herokuapp.com:3000';
+  // private url = 'https://sleepy-peak-16026.herokuapp.com:3000';
   private socket;
 
   constructor() {
@@ -16,7 +16,7 @@ export class ChatService {
       @opts — Any connect options that we want to pass along
       @return — A Socket object
      */
-    this.socket = io.connect(this.url);
+    this.socket = io();
   }
 
   public sendMessage(message: string) {
