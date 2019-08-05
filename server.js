@@ -6,10 +6,10 @@ let app = express();
 const path = require('path');
 
 // //allows access to http module
-// let http = require('http');
+let https = require('https');
 // //creates a server and passes in the instance of express
 // //express will now serve as the handler for requests to the server
-// let server = http.Server(app);
+let server = https.createServer(app);
 
 let socketIO = require('socket.io');
 // //bind http server with socket.io 
@@ -46,7 +46,7 @@ app.get('/*', function(req,res) {
 
 app.listen(port2);
 
-const io = socketIO(app);
+const io = socketIO(server);
 
 io.on('connection', (socket) => {
     console.log('Client connected');
