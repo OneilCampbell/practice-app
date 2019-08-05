@@ -35,16 +35,16 @@ const port2 = process.env.PORT || 8080;
 // })
 
 
-server.use(express.static(__dirname + '/dist/olex-chat-app'));
+app.use(express.static(__dirname + '/dist/olex-chat-app'));
 
-server.get('/*', function(req,res) {
+app.get('/*', function(req,res) {
     
     res.sendFile(path.join(__dirname, '/dist/olex-chat-app/index.html'));
 
 });
 
 
-// app.listen(port2);
+app.listen(port2);
 
 const io = socketIO(server);
 
