@@ -44,7 +44,7 @@ app.get('/*', function(req,res) {
 });
 
 
-app.listen(port2);
+// app.listen(port2);
 
 const io = socketIO(server);
 
