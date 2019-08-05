@@ -5,15 +5,15 @@ let app = express();
 
 const path = require('path');
 
-// //allows access to http module
-let https = require('https');
-// //creates a server and passes in the instance of express
-// //express will now serve as the handler for requests to the server
-let server = https.createServer(app);
+// // //allows access to http module
+// let https = require('https');
+// // //creates a server and passes in the instance of express
+// // //express will now serve as the handler for requests to the server
+// let server = https.createServer(app);
 
-let socketIO = require('socket.io');
-// //bind http server with socket.io 
-// let io = socketIO(server);
+// let socketIO = require('socket.io');
+// // //bind http server with socket.io 
+// // let io = socketIO(server);
 
 // const port = process.env.PORT || 3000;
 const port2 = process.env.PORT || 8080;
@@ -44,16 +44,16 @@ app.get('/*', function(req,res) {
 });
 
 
-const io = socketIO(server);
+// const io = socketIO(server);
 
-io.on('connection', (socket) => {
-    console.log('Client connected');
-    socket.on('disconnect', () => console.log('Client disconnected'));
-    socket.on('new-message', (message) => {
-        //sends an event to everyone connected to the server and passes along the message
-        io.emit('new-message', message);
-    })
-})
+// io.on('connection', (socket) => {
+//     console.log('Client connected');
+//     socket.on('disconnect', () => console.log('Client disconnected'));
+//     socket.on('new-message', (message) => {
+//         //sends an event to everyone connected to the server and passes along the message
+//         io.emit('new-message', message);
+//     })
+// })
 
 app.listen(port2);
 // server.listen(port2);
